@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Bookstore_Management.Models.Data.Entities.Book>
+<h1 class="my-4 text-center">Book List</h1>
+<div class="">
+    <div class="d-flex justify-content-end mb-3">
+        <a asp-controller="Books" asp-action="Create" class="btn btn-primary">Create Book</a>
+    </div>
+
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th class="text-center">Title</th>
+                <th class="text-center">Author</th>
+                <th class="text-center">Price</th>
+                <th class="text-center">Genre</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>@book.Author</td>
+                    <td>@String.Format("{0:C}", book.Price)</td> 
+                    <td>@book.Genre</td>
+                    <td class="text-center">
+                        <a asp-controller="Books" asp-action="Edit" asp-route-id="@book.BookId" class="btn btn-warning btn-sm">Edit</a>
+                        <a asp-controller="Books" asp-action="Delete" asp-route-BookId="@book.BookId" class="btn btn-danger btn-sm">Delete</a>
+                        <a asp-controller="Books" asp-action="Details" asp-route-BookId="@book.BookId" class="btn btn-info btn-sm">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

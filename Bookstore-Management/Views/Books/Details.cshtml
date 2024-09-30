@@ -1,0 +1,28 @@
+﻿@model Book
+
+<div class="container mt-5">
+    <!-- Title Section -->
+    <h1 class="display-4 mb-4">
+        <span class="text-dark">Title: @Model.Title</span>
+    </h1>
+
+    <!-- Book Information Container -->
+    <div class="container p-4 shadow-sm bg-body-tertiary rounded">
+
+        <!-- Author Section -->
+        <div class="fs-3 text-info mb-3">Author: @Model.Author</div>
+
+        <!-- Horizontal Line -->
+        <hr class="border border-danger border-2 opacity-50" style="width: 50%;">
+
+        <!-- Genre and Price Section -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="text-muted">Genre: @Model.Genre</h4>
+            <h4 class="text-success">Price: @Model.Price</h4>
+        </div>
+            <a  asp-action="Index" asp-controller="Books" class="btn btn-primary">
+                go Back 
+            </a>
+
+    </div>
+</div>
